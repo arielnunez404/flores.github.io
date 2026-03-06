@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>🌺 Flores AI Prompt</title>
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(270deg,#ff4da6,#7928ca,#2afadf);
+background-size:600% 600%;
+animation:fondo 12s ease infinite;
+font-family:Arial;
+overflow:hidden;
+color:white;
+}
+
+@keyframes fondo{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+.box{
+background:rgba(0,0,0,0.6);
+padding:35px;
+border-radius:20px;
+width:700px;
+text-align:center;
+box-shadow:0 0 30px rgba(255,0,200,0.7);
+z-index:2;
+}
+
+h1{
+font-size:32px;
+margin-bottom:20px;
+}
+
+textarea{
+width:100%;
+height:200px;
+background:#111;
+color:#00ffcc;
+border:none;
+border-radius:10px;
+padding:15px;
+font-size:14px;
+}
+
+button{
+margin-top:15px;
+padding:12px 25px;
+font-size:16px;
+border:none;
+border-radius:10px;
+background:#ff2da0;
+color:white;
+cursor:pointer;
+box-shadow:0 0 15px #ff2da0;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+/* flores cayendo */
+
+.flower{
+position:absolute;
+top:-50px;
+font-size:25px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-50px);
+opacity:1;
+}
+100%{
+transform:translateY(110vh);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>🌺 Prompt Flores Ultra Hermosas</h1>
+
+<textarea id="prompt">
+A magical field full of the most beautiful flowers in the world, glowing roses, vibrant cherry blossoms, exotic orchids, colorful lilies and tropical flowers blooming together. Petals floating in the air, golden sunset light, dreamy atmosphere, cinematic lighting, ultra detailed petals, fantasy garden, vibrant colors, depth of field, ultra realistic textures, masterpiece, HDR, 8K ultra resolution.
+</textarea>
+
+<br>
+
+<button onclick="copiar()">Copiar Prompt</button>
+
+</div>
+
+<script>
+
+function copiar(){
+let texto=document.getElementById("prompt");
+texto.select();
+document.execCommand("copy");
+alert("🌺 Prompt copiado");
+}
+
+/* crear flores cayendo */
+
+function crearFlor(){
+const flor=document.createElement("div")
+flor.classList.add("flower")
+flor.innerHTML="🌸"
+
+flor.style.left=Math.random()*100+"vw"
+flor.style.animationDuration=(Math.random()*3+3)+"s"
+
+document.body.appendChild(flor)
+
+setTimeout(()=>{
+flor.remove()
+},6000)
+
+}
+
+setInterval(crearFlor,300)
+
+</script>
+
+</body>
+</html>
